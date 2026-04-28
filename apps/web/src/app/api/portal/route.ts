@@ -1,4 +1,4 @@
-import { api } from "@/lib/polar";
+import { getPolarApi } from "@/lib/polar";
 import { getSession } from "@languine/supabase/session";
 import { type NextRequest, NextResponse } from "next/server";
 
@@ -17,7 +17,7 @@ export async function GET(req: NextRequest) {
     throw new Error("Customer ID is required");
   }
 
-  const result = await api.customerSessions.create({
+  const result = await getPolarApi().customerSessions.create({
     customerId,
   });
 

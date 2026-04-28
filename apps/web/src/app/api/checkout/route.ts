@@ -1,4 +1,4 @@
-import { api } from "@/lib/polar";
+import { getPolarApi } from "@/lib/polar";
 import { type NextRequest, NextResponse } from "next/server";
 
 export const GET = async (req: NextRequest) => {
@@ -18,7 +18,7 @@ export const GET = async (req: NextRequest) => {
 
   const successUrl = `${process.env.NEXT_PUBLIC_APP_URL}${redirectPath}?tab=billing`;
 
-  const checkout = await api.checkouts.custom.create({
+  const checkout = await getPolarApi().checkouts.custom.create({
     productId: productId,
     successUrl,
     customerId: customerId ?? undefined,
