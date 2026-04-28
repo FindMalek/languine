@@ -16,7 +16,7 @@ export function loadEnv(workingDir: string = process.cwd()) {
 
   return {
     LANGUINE_DEBUG: env.parsed?.LANGUINE_DEBUG || false,
-    LANGUINE_BASE_URL: env.parsed?.LANGUINE_BASE_URL || "https://languine.ai",
+    LANGUINE_BASE_URL: env.parsed?.LANGUINE_BASE_URL || process.env.LANGUINE_BASE_URL || "https://languine.ai",
     LANGUINE_PROJECT_ID: env.parsed?.LANGUINE_PROJECT_ID,
   };
 }

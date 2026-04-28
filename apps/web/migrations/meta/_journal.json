@@ -64,6 +64,13 @@
       "when": 1738509259342,
       "tag": "0008_striped_virginia_dare",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1777359037414,
+      "tag": "0009_warm_daimon_hellstrom",
+      "breakpoints": true
     }
   ]
 }
