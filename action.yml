@@ -30,6 +30,10 @@ inputs:
   working-directory:
     description: 'Working directory relative to repository root'
     required: false
+  base-url:
+    description: 'Base URL for self-hosted Languine instance'
+    required: false
+    default: 'https://languine.ai'
 
 runs:
   using: 'docker'
@@ -42,6 +46,7 @@ runs:
     LANGUINE_CREATE_PULL_REQUEST: ${{ inputs.create-pull-request }}
     LANGUINE_COMMIT_MESSAGE: ${{ inputs.commit-message }}
     LANGUINE_PR_TITLE: ${{ inputs.pr-title }}
+    LANGUINE_BASE_URL: ${{ inputs.base-url }}
     DEV_MODE: ${{ inputs.dev-mode }}
 
 branding:

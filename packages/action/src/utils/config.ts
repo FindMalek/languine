@@ -19,6 +19,7 @@ export const ConfigSchema = z.object({
     .string()
     .optional()
     .default("chore: (i18n) update translations using Languine.ai"),
+  baseUrl: z.string().default("https://languine.ai"),
 });
 
 export type Config = z.infer<typeof ConfigSchema>;
@@ -33,5 +34,6 @@ export function parseConfig(): Config {
     commitMessage:
       process.env.LANGUINE_COMMIT_MESSAGE || process.env.COMMIT_MESSAGE,
     prTitle: process.env.LANGUINE_PR_TITLE,
+    baseUrl: process.env.LANGUINE_BASE_URL,
   });
 }
