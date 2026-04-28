@@ -15,10 +15,6 @@ export const ConfigSchema = z.object({
   commitMessage: z
     .string()
     .default("chore: (i18n) update translations using Languine.ai"),
-  prTitle: z
-    .string()
-    .optional()
-    .default("chore: (i18n) update translations using Languine.ai"),
   baseUrl: z.string().default("https://languine.ai"),
 });
 
@@ -33,7 +29,6 @@ export function parseConfig(): Config {
     createPullRequest: process.env.LANGUINE_CREATE_PULL_REQUEST === "true",
     commitMessage:
       process.env.LANGUINE_COMMIT_MESSAGE || process.env.COMMIT_MESSAGE,
-    prTitle: process.env.LANGUINE_PR_TITLE,
     baseUrl: process.env.LANGUINE_BASE_URL,
   });
 }

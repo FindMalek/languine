@@ -41,7 +41,7 @@ export class PullRequestWorkflow implements GitWorkflow {
     });
 
     await this.gitProvider.createOrUpdatePullRequest({
-      title: this.config.prTitle ?? this.config.commitMessage,
+      title: "i18n: update translations",
       body: this.#getPrBodyContent(),
       branch: this.branchName,
     });
