@@ -23,6 +23,29 @@ export class PullRequestWorkflow implements GitWorkflow {
 
   async run() {
     logger.info("Running pull request workflow...");
+
+    await this.gitProvider.createBranch(this.branchName);
+
+    await this.translationService.runTranslation(this.config);
+
+    const hasChanges = await this.gitProvider.hasChanges();
+
+    if (!hasChanges) {
+      logger.info("No changes detected, skipping PR creation");
+      return false;
+    }
+
+    await this.gitProvider.commitAndPush({
+      message: this.config.commitMessage,
+      branch: this.branchName,
+    });
+
+    await this.gitProvider.createOrUpdatePullRequest({
+      title: this.config.prTitle ?? this.config.commitMessage,
+      body: this.#getPrBodyContent(),
+      branch: this.branchName,
+    });
+
     return true;
   }
 
