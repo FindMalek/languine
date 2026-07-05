@@ -22,7 +22,7 @@
   ],
   "dependencies": {
     "@clack/prompts": "^0.10.0",
-    "@trigger.dev/sdk": "3.3.13",
+    "@trigger.dev/sdk": "4.5.0",
     "@trpc/client": "11.0.0-rc.700",
     "@trpc/server": "11.0.0-rc.700",
     "@types/xml2js": "^0.4.14",

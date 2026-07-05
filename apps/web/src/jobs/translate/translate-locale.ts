@@ -1,5 +1,5 @@
 import { createDocument, createTranslations } from "@/db/queries/translate";
-import { schemaTask } from "@trigger.dev/sdk/v3";
+import { schemaTask } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { calculateChunkSize } from "../utils/chunk";
 import { translateDocument, translateKeys } from "../utils/translate";

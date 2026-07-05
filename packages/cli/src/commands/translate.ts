@@ -12,7 +12,7 @@ import { LockFileManager } from "@/utils/lock.ts";
 import { transformLocalePath } from "@/utils/path.js";
 import { getAPIKey } from "@/utils/session.ts";
 import { note, outro, select, spinner } from "@clack/prompts";
-import { auth, runs } from "@trigger.dev/sdk/v3";
+import { auth, runs } from "@trigger.dev/sdk";
 import chalk from "chalk";
 import glob from "fast-glob";
 import open from "open";

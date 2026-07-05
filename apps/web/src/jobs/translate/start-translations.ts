@@ -1,5 +1,5 @@
 import { validateJobPermissions } from "@/db/queries/permissions";
-import { schemaTask } from "@trigger.dev/sdk/v3";
+import { queue, schemaTask } from "@trigger.dev/sdk";
 import { z } from "zod";
 import { translateLocaleTask } from "./translate-locale";
 
@@ -7,6 +7,16 @@ type TranslationOutput = {
   translations: Array<{ key: string; translatedText: string }>;
   targetLocale: string;
 };
+
+export const freeUsersQueue = queue({
+  name: "free-users",
+  concurrencyLimit: 5,
+});
+
+export const paidUsersQueue = queue({
+  name: "paid-users",
+  concurrencyLimit: 5,
+});
 
 const startTranslationsSchema = z.object({
   projectId: z.string(),

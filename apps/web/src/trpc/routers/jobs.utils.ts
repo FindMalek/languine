@@ -20,10 +20,7 @@ export interface TranslationLimitCheckResult {
 }
 
 export interface TranslationTaskOptions {
-  queue: {
-    name: string;
-    concurrencyLimit: number;
-  };
+  queue: string;
   concurrencyKey: string;
 }
 
@@ -125,18 +122,12 @@ export function getTranslationTaskOptions(
 
   const options: TranslationTaskOptions = isFreeUser
     ? {
-        queue: {
-          name: "free-users",
-          concurrencyLimit: 5,
-        },
+        queue: "free-users",
         // General concurrency
         concurrencyKey: "free-users",
       }
     : {
-        queue: {
-          name: "paid-users",
-          concurrencyLimit: 5,
-        },
+        queue: "paid-users",
         // Per organization concurrency
         concurrencyKey: org.id,
       };

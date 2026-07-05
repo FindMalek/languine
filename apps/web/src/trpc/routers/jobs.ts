@@ -1,6 +1,6 @@
 import type { startTranslationsTask } from "@/jobs/translate/start-translations";
 import { transformKeys } from "@/jobs/utils/transform";
-import { tasks } from "@trigger.dev/sdk/v3";
+import { tasks } from "@trigger.dev/sdk";
 import { createTRPCRouter, protectedProcedure } from "../init";
 import { hasProjectAccess } from "../permissions/project";
 import {
